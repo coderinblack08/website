@@ -1,20 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 @tailwind base;
 
 /* Write your own custom base styles here */
+html,
+body {
+  background-color: #0a0a0a;
+  color: white;
+}
 
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */
 
-html,
-body {
-  @apply bg-gray-50 dark:bg-gray-900;
-}
-
 /* Write your own custom component styles here */
-.btn-blue {
-  @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
-}
 
 /* Start purging... */
 @tailwind utilities;
