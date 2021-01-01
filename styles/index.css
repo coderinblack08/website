@@ -20,3 +20,8 @@ body {
 /* Stop purging. */
 
 /* Your own custom utilities */
+
+.lg\:prose-lg > pre {
+  padding: 0 !important;
+  margin: 0 !important;
+}

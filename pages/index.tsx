@@ -1,19 +1,22 @@
+import { GetStaticProps } from 'next';
 import * as React from 'react';
+import { GradientBar } from '../components/GradientBar';
 import { Post } from '../components/Post';
+import { getSortedPosts } from '../lib/blog';
 
-const Index: React.FC = () => {
+const Index: React.FC<{ blogData: any }> = ({ blogData }) => {
   return (
     <div>
-      <div className="h-1.5 w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500" />
-      <header className="py-20 md:py-32 xl:py-44 px-5">
+      <GradientBar />
+      <header className="py-20 md:py-32 lg:py-40 xl:py-44 2xl:py-48 px-5">
         <div className="relative z-10">
-          <h1 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center leading-snug">
+          <h1 className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-left sm:text-center leading-snug">
             Find out what shenanigans <br />
             <div className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent md:mt-4 pb-1">
               I’m thinking about
             </div>
           </h1>
-          <blockquote className="font-lato relative text-gray-400 my-5 md:my-10 max-w-md px-5 sm:max-w-2xl mx-auto text-center">
+          <blockquote className="font-lato relative text-gray-400 my-5 md:my-10 max-w-md sm:max-w-2xl sm:mx-auto text-left sm:text-center">
             <div className="hidden md:block absolute -top-4 left-2">
               <svg
                 width="31"
@@ -34,6 +37,9 @@ const Index: React.FC = () => {
             <p>
               Computer science is no more about computers than astronomy is
               about telescopes
+              <span className="ml-2 inline sm:hidden text-white font-bold">
+                - Edsger W. Dijkstra
+              </span>
             </p>
             <div className="hidden md:block absolute bottom-2 right-2">
               <svg
@@ -53,28 +59,40 @@ const Index: React.FC = () => {
               </svg>
             </div>
           </blockquote>
-          <p className="font-lato font-bold text-white text-center md:-mt-6">
+          <p className="hidden sm:block font-lato font-bold text-white text-left sm:text-center -mt-1 md:-mt-6">
             - Edsger W. Dijkstra
           </p>
-          <button className="mx-auto block mt-6 md:mt-10 shadow-xl rounded-full px-11 py-2.5 font-lato text-lg font-bold bg-gradient-to-r from-blue-500 to-violet-500 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-offset-4 focus:ring-offset-black">
+          <button className="sm:mx-auto block mt-10 shadow-xl rounded-full px-8 sm:px-11 py-2 sm:py-2.5 font-lato sm:text-lg font-bold bg-gradient-to-r from-blue-500 to-violet-500 focus:outline-none focus:ring focus:ring-indigo-600 focus:ring-offset-4 transition focus:ring-offset-black">
             Dive In
           </button>
         </div>
-        <h2 className="relative z-0 -mt-48 font-lato font-black text-9xl text-center bg-clip-text text-transparent bg-gradient-to-b from-black to-gray-800">
+        <h2 className="hidden lg:block relative z-0 -mt-48 font-lato font-black text-9xl text-center bg-clip-text text-transparent bg-gradient-to-b from-black to-gray-800">
           Coderinblack
         </h2>
       </header>
-      <main className="max-w-3xl mx-auto">
-        <Post
-          tag="USACO"
-          date="12/25/2020"
-          pageViews={4238}
-          title="Partial Sums and applications on Hoof, Paper, Scissors (Silver)"
-          description="Examining how to use partial sums to solve problems faster by “caching” previous sums in auxiliary space."
-        />
+      <main className="space-y-24 max-w-3xl px-10 mx-auto mt-12 mb-44">
+        {blogData.map((post: any) => (
+          <Post
+            slug={post.slug}
+            tag={post.tag}
+            date={post.date}
+            pageViews={0}
+            title={post.title}
+            description={post.description}
+          />
+        ))}
       </main>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const blogData = getSortedPosts();
+  return {
+    props: {
+      blogData,
+    },
+  };
 };
 
 export default Index;
