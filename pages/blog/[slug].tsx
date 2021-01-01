@@ -24,14 +24,16 @@ const Blog: React.FC<{ source: any; frontMatter: any }> = ({
           <h1 className="font-black md:leading-normal text-3xl md:text-4xl">
             {frontMatter.title}
           </h1>
-          <div className="mt-5 text-gray-500 font-lato flex justify-between">
+          <div className="mt-5 text-gray-400 font-lato flex justify-between">
             <p>By Coderinblack / {frontMatter.date}</p>
             <div className="flex items-center">
               <Clock size={18} className="mr-1.5" />
               {frontMatter.readingTime.text}
             </div>
           </div>
-          <article className="prose lg:prose-lg mt-14">{content}</article>
+          <article className="prose lg:prose-lg mt-14 font-lato">
+            {content}
+          </article>
         </div>
       </div>
     </div>
