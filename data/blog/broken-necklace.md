@@ -84,9 +84,8 @@ Just like we did in the explanation, we can cycle through the string. This means
 we put the last character in the front. For example, if we started with 'abc', we would have the cycle:
 'abc', 'cab', and 'bca' (note this is similar to moving the 'v' cursor in above).
 
-For each possible bracelet we can do a similar task as above.
-For example, lets try to simulate what would happen if 'rrwb' was the necklace we would first try all possible cycles
-('rrwb', 'brrw', 'wbrr', 'rwbr'). For each string, we can count the number of 'r' or 'b' beads from left or right.
+Given a bracelet, we can preform a similar task as above. For example, let's try to simulate what would happen if 'rrwb' was the necklace.
+We would first try all the possible cycles ('rrwb', 'brrw', 'wbrr', 'rwbr'). For each string, we can count the number of 'r' or 'b' beads from left or right.
 
 So if we had 'rrwb', we collect either $2$ blue beads from the left or $0$ red from the right. We can collect $3$ red and $0$ blue from the left.
 This means we can get at most $max(2, 0) + max(3, 0) = 5$.

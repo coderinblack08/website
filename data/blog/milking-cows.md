@@ -51,16 +51,16 @@ The longest continuous milking period is from $300 - 1200$ and the longest perio
 
 ## Solution
 
-My solution code is a bit messy so I'll try to go through it. First, we get a starting and ending interval.
-We store the time and $\{1, -1\}$, corresponding to if it is a starting or ending point.
+My code is a bit messy so I'll try to walk y'all through it. First, we get a the starting and ending points of an interval.
+We store the time and value in $\{1, -1\}$ corresponding to if it is a starting or ending point, respectively.
 
 We can then go through the points on the "timeline" and add the second number ($1$ or $-1$) to an accumulator (`cur` in the code below).
-If the total sum is 0, then we have no farmer milking a cow.
+If the total sum is 0, then we have no farmer milking a cow at that time.
 
 We can have `cont` and `idle` as two variables, both initialized to $-1$. Once we hit `cur == 0 && idle == -1`, then we can set `idle` to be the current time.
-Once we hit a number in which `cur != 0`, then we can set the maximum idle time to be the `max(current answer, current time - idle)` if idle isn't $-1$. We can then set `idle = 1`.
+Once we hit a number in which `cur != 0` (meaning there is a farmer at that time), then we can set the maximum idle time to be the `max(current answer, current time - idle)` if idle isn't $-1$. We can then set `idle = -1`.
 
-Finding the longest continuos milking time is a bit more tricky. Remember, is we have intervals $[50, 100]$ and $[100, 200]$, the longest continuos milking session is $250$ long since 
+Finding the longest continuous milking time is a bit more tricky. Remember, is we have intervals $[50, 100]$ and $[100, 200]$, the longest continuous milking session is $250$ long since 
 intervals can start and end at the same time!
 
 Like we did for the longest idle time, we can set `cont` to be our current time if `cur != 0 && cont == -1`. 

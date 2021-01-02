@@ -1,16 +1,18 @@
-import React from 'react';
-import { GradientBar } from '../../components/GradientBar';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { getAllPostSlugs, getPostdata } from '../../lib/blog';
-import readingTime from 'reading-time';
 import matter from 'gray-matter';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { ArrowLeft, Clock } from 'heroicons-react';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import hydrate from 'next-mdx-remote/hydrate';
-import remarkCodeTitles from 'remark-code-titles';
-import { components } from '../../lib/components';
+import renderToString from 'next-mdx-remote/render-to-string';
+import Link from 'next/link';
+import React from 'react';
+import { Tween } from 'react-gsap';
+import readingTime from 'reading-time';
 import rehypeKatex from 'rehype-katex';
+import remarkCodeTitles from 'remark-code-titles';
 import remarkMath from 'remark-math';
-import { Clock } from 'heroicons-react';
+import { GradientBar } from '../../components/GradientBar';
+import { getAllPostSlugs, getPostdata } from '../../lib/blog';
+import { components } from '../../lib/components';
 
 const Blog: React.FC<{ source: any; frontMatter: any }> = ({
   source,
@@ -22,19 +24,35 @@ const Blog: React.FC<{ source: any; frontMatter: any }> = ({
       <GradientBar />
       <div>
         <div className="max-w-3xl mx-auto py-24 px-5">
-          <h1 className="font-black md:leading-normal text-3xl md:text-4xl">
-            {frontMatter.title}
-          </h1>
-          <div className="mt-5 text-gray-400 font-lato flex justify-between">
-            <p>By Coderinblack / {frontMatter.date}</p>
-            <div className="flex items-center">
-              <Clock size={18} className="mr-1.5" />
-              {frontMatter.readingTime.text}
+          <Link href="/">
+            <a>
+              <ArrowLeft
+                size={24}
+                className="mb-4 text-gray-600 hover:text-gray-400 transition"
+              />
+            </a>
+          </Link>
+          <Tween stagger={0.2} duration={0.5} from={{ opacity: 0, y: -25 }}>
+            <h1 className="font-black md:leading-normal text-3xl md:text-4xl">
+              {frontMatter.title}
+            </h1>
+            <div className="mt-5 text-gray-400 font-lato flex justify-between">
+              <p>By Coderinblack / {frontMatter.date}</p>
+              <div className="flex items-center">
+                <Clock size={18} className="mr-1.5" />
+                {frontMatter.readingTime.text}
+              </div>
             </div>
-          </div>
-          <article className="prose max-w-none w-full mt-14 font-lato">
-            {content}
-          </article>
+            <article className="prose max-w-none w-full mt-14 font-lato">
+              {content}
+            </article>
+            <a
+              href="https://github.com/coderinblack08"
+              className="block text-gray-500 text-sm mt-4 hover:underline"
+            >
+              Found mistakes? Edit on Github
+            </a>
+          </Tween>
         </div>
       </div>
     </div>
