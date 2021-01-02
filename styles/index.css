@@ -3,11 +3,6 @@
 @tailwind base;
 
 /* Write your own custom base styles here */
-html,
-body {
-  background-color: #0a0a0a;
-  color: white;
-}
 
 /* Start purging... */
 @tailwind components;
@@ -21,7 +16,6 @@ body {
 
 /* Your own custom utilities */
 
-.lg\:prose-lg > pre {
-  padding: 0 !important;
-  margin: 0 !important;
-}
+/* .prose pre {
+  @apply border border-gray-700 bg-gray-900;
+} */

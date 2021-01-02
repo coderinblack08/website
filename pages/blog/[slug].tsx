@@ -6,6 +6,7 @@ import readingTime from 'reading-time';
 import matter from 'gray-matter';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
+import remarkCodeTitles from 'remark-code-titles';
 import { components } from '../../lib/components';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
@@ -31,7 +32,7 @@ const Blog: React.FC<{ source: any; frontMatter: any }> = ({
               {frontMatter.readingTime.text}
             </div>
           </div>
-          <article className="prose lg:prose-lg mt-14 font-lato">
+          <article className="prose max-w-none w-full mt-14 font-lato">
             {content}
           </article>
         </div>
@@ -55,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const mdxSource = await renderToString(content, {
     components,
     mdxOptions: {
-      remarkPlugins: [remarkMath],
+      remarkPlugins: [remarkMath, remarkCodeTitles],
       rehypePlugins: [rehypeKatex],
     },
     scope: data,

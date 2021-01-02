@@ -82,7 +82,7 @@ wwwbbrwrbrbrrbrbrwrwwrbwrwrrb|wwwbbrwrbrbrrbrbrwrwwrbwrwrrb
 
 Just like we did in the explanation, we can cycle through the string. This means
 we put the last character in the front. For example, if we started with 'abc', we would have the cycle:
-'abc', 'cab', and 'bca' (note this is similar to moving the "v" cursor in above).
+'abc', 'cab', and 'bca' (note this is similar to moving the 'v' cursor in above).
 
 For each possible bracelet we can do a similar task as above.
 For example, lets try to simulate what would happen if 'rrwb' was the necklace we would first try all possible cycles
@@ -93,7 +93,7 @@ This means we can get at most $max(2, 0) + max(3, 0) = 5$.
 
 Now we can do this for all other strings in the cycle. We can take the max amount of beads collected and print it as our answer!
 
-```cpp
+```cpp:beads.cpp
 #include <bits/stdc++.h>
 #define all(x) (x).begin(), (x).end()
 #define ll long long

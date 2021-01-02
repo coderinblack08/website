@@ -25,6 +25,7 @@
     "reading-time": "^1.2.1",
     "rehype-katex": "^4.0.0",
     "remark": "^13.0.0",
+    "remark-code-titles": "^0.1.1",
     "remark-math": "2.0.0"
   },
   "devDependencies": {

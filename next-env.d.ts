@@ -42,3 +42,4 @@ declare module '@mdx-js/react' {
 declare module '@mapbox/rehype-prism';
 declare module 'reading-time';
 declare module 'remark-math';
+declare module 'remark-code-titles';

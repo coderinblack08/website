@@ -69,7 +69,7 @@ We also have to check if the next point in time occurs at the same time this one
 
 This is quick enough since it runs in $\mathcal{O}(2n)$ time.
 
-```cpp
+```cpp:milk2.cpp
 #include <bits/stdc++.h>
 #define all(x) (x).begin(), (x).end()
 #define ll long long

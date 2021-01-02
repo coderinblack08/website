@@ -17,7 +17,7 @@ const CodeBlock: React.FC<{ className: string }> = ({
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`${className} rounded-lg shadow-lg`}
+          className={`${className} rounded-lg border border-gray-700 shadow-lg`}
           style={{
             ...style,
             padding: '20px',

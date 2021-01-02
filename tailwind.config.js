@@ -58,15 +58,6 @@ module.exports = {
             },
           },
         },
-        lg: {
-          pre: false,
-          code: false,
-          'pre code': false,
-          'code::before': false,
-          'code::after': false,
-          'pre code::before': false,
-          'pre code::after': false,
-        },
       }),
       fontFamily: {
         lato: ['Lato', 'sans-serif'],
