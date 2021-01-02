@@ -14,7 +14,8 @@ import { GradientBar } from '../../components/GradientBar';
 import { getAllPostSlugs, getPostdata } from '../../lib/blog';
 import { components } from '../../lib/components';
 
-const Blog: React.FC<{ source: any; frontMatter: any }> = ({
+const Blog: React.FC<{ slug: string; source: any; frontMatter: any }> = ({
+  slug,
   source,
   frontMatter,
 }) => {
@@ -47,7 +48,7 @@ const Blog: React.FC<{ source: any; frontMatter: any }> = ({
               {content}
             </article>
             <a
-              href="https://github.com/coderinblack08"
+              href={`https://github.com/coderinblack08/website/blob/main/data/blog/${slug}.md`}
               className="block text-gray-500 text-sm mt-4 hover:underline"
             >
               Found mistakes? Edit on Github
@@ -88,6 +89,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      slug: params!.slug,
       source: mdxSource,
       frontMatter: {
         ...data,
