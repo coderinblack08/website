@@ -8,7 +8,7 @@ export const getSortedPosts = () => {
   const fileNames = fs.readdirSync(blogDirectory);
 
   const allPostsData = fileNames.map((filename) => {
-    const slug = filename.replace('.mdx', '');
+    const slug = filename.replace('.md', '');
 
     const fullPath = path.join(blogDirectory, filename);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -42,14 +42,14 @@ export const getAllPostSlugs = () => {
   return slugs.map((slug) => {
     return {
       params: {
-        slug: slug.replace('.mdx', ''),
+        slug: slug.replace('.md', ''),
       },
     };
   });
 };
 
 export const getPostdata = async (slug: string) => {
-  const fullPath = path.join(blogDirectory, `${slug}.mdx`);
+  const fullPath = path.join(blogDirectory, `${slug}.md`);
   const postContent = fs.readFileSync(fullPath, 'utf8');
 
   return postContent;

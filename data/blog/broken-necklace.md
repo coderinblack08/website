@@ -1,6 +1,6 @@
 ---
 tag: 'USACO'
-date: '1/1/2021'
+date: '12/30/2020'
 title: 'Broken Necklace, String Manipulation (USACO Training)'
 description: 'Contains a problem from section 1.2 of the USACO training site'
 ---
@@ -12,7 +12,7 @@ description: 'Contains a problem from section 1.2 of the USACO training site'
   crossOrigin="anonymous"
 />
 
-This is part of a "serires" of problem explinations from USACO Training.
+This is part of a "series" of problem explanations from USACO Training.
 
 1. Broken Necklace (beads)
 2. Milking Cows (milk2)
@@ -64,7 +64,7 @@ wwwbbrwrbrbrrbrbrwrwwrbwrwrrb
 11
 ```
 
-### Output Explination
+### Output Explanation
 
 Consider two copies of the beads (kind of like being able to runaround the ends). The string of 11 is marked.
 
@@ -80,11 +80,11 @@ wwwbbrwrbrbrrbrbrwrwwrbwrwrrb|wwwbbrwrbrbrrbrbrwrwwrbwrwrrb
 
 ## Solution
 
-Just like we did in the explination, we can cycle through the string. This means
+Just like we did in the explanation, we can cycle through the string. This means
 we put the last character in the front. For example, if we started with 'abc', we would have the cycle:
-'abc', 'cab', and 'bca' (note this is simlar to moving the "v" cursor in above).
+'abc', 'cab', and 'bca' (note this is similar to moving the "v" cursor in above).
 
-For each possible braclet we can do a similar task as above.
+For each possible bracelet we can do a similar task as above.
 For example, lets try to simulate what would happen if 'rrwb' was the necklace we would first try all possible cycles
 ('rrwb', 'brrw', 'wbrr', 'rwbr'). For each string, we can count the number of 'r' or 'b' beads from left or right.
 
