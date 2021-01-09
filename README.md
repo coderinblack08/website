@@ -1,2 +1,2 @@
-# website
-My slice of the internet 🍰 🥧
+# Portfolio & Blog
+> My slice of the internet 🍰 🥧

@@ -85,6 +85,7 @@ const Index: React.FC<{ blogData: any }> = ({ blogData }) => {
       >
         {blogData.map((post: any) => (
           <Post
+            key={post.slug}
             slug={post.slug}
             tag={post.tag}
             date={post.date}
